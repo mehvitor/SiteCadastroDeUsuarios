@@ -9,15 +9,14 @@
 	require_once "config.php";
 
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
-		$name = $_POST['name'];
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-		$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+		$idFornecedores = $_POST['idFornecedores'];
+		$nome = $_POST['nome'];
+		$cpf = $_POST['cpf'];
+	
 
-
-		$sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+		$sql = "INSERT INTO fornecedores (idFornecedores, nome, cpf) VALUES ( ?, ?, ?)";
 		$stmt = $conn->prepare($sql);
-		$stmt->bind_param("sss", $name, $email, $hashed_password);
+		$stmt->bind_param("sss", $idFornecedores, $nome, $cpf);
 
 		if($stmt ->execute()){
 			echo "Fornecedor criado com sucesso";
