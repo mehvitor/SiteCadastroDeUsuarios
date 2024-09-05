@@ -54,7 +54,7 @@
 		Email: <input type="email" name="email" required><br>
 		Senha: <input type="password" name="password" required><br>
 
-		<a href="site.php"></a><input type="submit" value="Logar" > 
+		<input type="submit" value="Logar" > 
 	</form>
 	<br>
 	<a href="cadastrar.php">Cadastre Aqui</a>

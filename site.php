@@ -51,7 +51,7 @@
           <a class="nav-link" href="produtos.php">Produtos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="cesta.php">Cesta</a>
+          <a class="nav-link" href="view_cart.php">Cesta</a>
         </li>
       </ul>
     </div>
@@ -80,7 +80,7 @@
 				include("produtos.php");
 				break;
 				case "cesta":
-				include("cesta.php");
+				include("view_cart.php");
 				break;
 				case"salvar":
 				include("salvarFornecedor");

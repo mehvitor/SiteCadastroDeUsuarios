@@ -1,5 +1,6 @@
 
 <link rel="stylesheet" href="estilo.css">
+ 
 <h1>Cadastre novo Fornecedor</h1>
 <form method="post" action="salvarFornecedor.php">
 	<input type="hidden" name="acao" value="cadastrar">
@@ -19,3 +20,5 @@
 		<input type="submit" value="Cadastrar"> 
 	</div>
 </form>
+
+<a href="site.php" class="btn btn-secondary">Voltar</a>

@@ -1,5 +1,6 @@
 
 <link rel="stylesheet" href="estilo.css">
+ 
 <h1>Cadastre novo Produto</h1>
 
 <form method="post" action="salvarProdutos.php">
@@ -24,3 +25,6 @@
 		<input type="submit" value="Cadastrar"> 
 	</div>
 </form>
+
+<link rel="stylesheet" href="estilo.css">
+<a href="site.php" class="btn btn-secondary">Voltar</a>

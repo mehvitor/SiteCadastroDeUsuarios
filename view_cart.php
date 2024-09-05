@@ -47,6 +47,7 @@ $total = 0;
         <?php endif; ?>
 
         <a href="produtos.php" class="btn btn-secondary">Continuar Comprando</a>
+        <a href="site.php" class="btn btn-secondary">Voltar</a>
     </div>
 </body>
 </html>
