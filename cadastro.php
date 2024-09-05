@@ -20,7 +20,7 @@
 		$stmt->bind_param("sss", $name, $email, $hashed_password);
 
 		if($stmt ->execute()){
-			echo "Fornecedor criado com sucesso";
+			echo "Usuário criado com sucesso";
 		} else{
 			echo "Erro: " . $sql. "<br>" . $conn->error;
 		}

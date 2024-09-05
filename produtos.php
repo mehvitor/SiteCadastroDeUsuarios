@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="estilo.css">
 <h1>Lista de Produtos</h1>
-
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
 <?php 
 
@@ -26,20 +26,29 @@
 			print "<th>Nome</th>";
 			print "<th>Descrição</th>";
 			print "<th>Valor</th>";
+			print "<th>Incluir no carrinho</th>";
 			print "</tr>";
 		while ($row = $res->fetch_object()) {
 			print "<tr>";
 			print "<td>". $row -> idProdutos."</td>";
 			print "<td>" .$row -> nome."</td>"; 
 			print "<td>" .$row -> descricao."</td>";
-			print "<td>" .$row -> valor."</td>";
+			 print "<td>R$ ". number_format($row->valor, 2, ',', '.') ."</td>";
+        print "<td>
+            <form method='POST' action='add_to_cart.php'>
+                <input type='hidden' name='idProdutos' value='". $row->idProdutos ."'>
+                <input type='hidden' name='nome' value='". $row->nome ."'>
+                <input type='hidden' name='descricao' value='". $row->descricao ."'>
+                <input type='hidden' name='valor' value='". $row->valor ."'>
+                <button class='btn btn-success' type='submit'>Adicionar</button>
+            </form>
+			</td>";
 			print "</tr>";
 		}
 		print "</table>";
 	}else{
 		print "<p class='alert alert-danger' > Não foram encontrados produtos</p>";
 	}
-
 
  ?>
 
