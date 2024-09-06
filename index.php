@@ -38,64 +38,6 @@
 
  ?>
 
- <?php
-// Configurações do banco de dados
-$host = 'localhost';
-$dbname = 'login1'; // Substitua pelo nome desejado para o banco de dados
-$username = 'root'; // Usuário do MySQL
-$password = ''; // Senha do MySQL
-
-try {
-    // Conectar ao MySQL sem especificar o banco de dados
-    $pdo = new PDO("mysql:host=$host", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // Criar o banco de dados, se não existir
-    $sql = "CREATE DATABASE IF NOT EXISTS $dbname";
-    $pdo->exec($sql);
-
-    // Conectar ao banco de dados recém-criado
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // Criar tabela users
-    $sql = "CREATE TABLE IF NOT EXISTS users (
-        idUsers INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(50) NOT NULL,
-        email VARCHAR(50) NOT NULL UNIQUE,
-        password VARCHAR(255) NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )";
-    $pdo->exec($sql);
-
-    // Criar tabela produtos
-    $sql = "CREATE TABLE IF NOT EXISTS produtos (
-        idProdutos INT(6) PRIMARY KEY not null,
-        nome VARCHAR(100) NOT NULL,
-        descricao VARCHAR(100) not null,
-        valor DECIMAL(10, 2) NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )";
-    $pdo->exec($sql);
-
-    // Criar tabela fornecedores
-    $sql = "CREATE TABLE IF NOT EXISTS fornecedores (
-        idFornecedores INT(6)  PRIMARY KEY not null,
-        nome VARCHAR(100) NOT NULL,
-        cpf VARCHAR(11) NOT NULL UNIQUE,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )";
-    $pdo->exec($sql);
-
-    echo "Banco de dados e tabelas criados com sucesso.";
-} catch (PDOException $e) {
-    echo "Erro: " . $e->getMessage();
-}
-
-$pdo = null;
-?>
-
-
 
 
 <!DOCTYPE html>
